@@ -14,7 +14,7 @@ agent = Agent(
 
 async def main():
     async with agent.run_mcp_servers():  
-        result = await agent.run('quel heure à londres?')
+        result = await agent.run('quel heure à tokyo?')
     print(result.output)
 
 import asyncio
