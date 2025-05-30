@@ -1,12 +1,16 @@
-import dotenv
-dotenv.load_dotenv()
-
-from pydantic_ai import Agent
+import asyncio
 import datetime
+from pydantic_ai import Agent
+from pydantic_ai.mcp import MCPServerStdio
 
-from pydantic_ai.mcp import MCPServerHTTP,MCPServerStdio
+import dotenv
+dotenv.load_dotenv() # charge "GEMINI_API_KEY"
+
 servers = [
+    # https://pypi.org/project/mcp-server-time/
     MCPServerStdio("uvx",["mcp-server-time","--local-timezone=Europe/Paris"]),
+
+    # local server, cf "./mcp-server-test"
     MCPServerStdio("uv",[
         "--directory",
         "./mcp-server-test",
@@ -20,8 +24,6 @@ agent = Agent(
     'google-gla:gemini-1.5-flash',
     # system_prompt='get_heure_actuelle() renvoie l\'heure actuelle. Réponds en français.',
     mcp_servers=servers)  
-
-
 
 
 async def main():
@@ -39,7 +41,6 @@ async def main():
 # def get_current_time() -> str:
 #     return datetime.datetime.now().isoformat()
 
-import asyncio
 if __name__ == '__main__':
     asyncio.run(main())
 

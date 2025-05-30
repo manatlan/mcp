@@ -14,3 +14,9 @@ pour g4f:
     python3 -m venv venv
     . venv/bin/activate
     pip install -r requirements.txt
+
+Le répertoire "mcp-server-test" (créé avec https://github.com/modelcontextprotocol/create-python-server?tab=readme-ov-file) est géré via 'uv' (il possède sont propre .venv). Pour l'activer en console :
+
+    $ cd mcp-server-test
+    $ uv sync --dev --all-extras
+    $ uv run mcp-server-test
