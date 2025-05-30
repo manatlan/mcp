@@ -33,6 +33,10 @@ agent = Agent(
     # system_prompt='get_heure_actuelle() renvoie l\'heure actuelle. Réponds en français.',
     mcp_servers=servers)  
 
+@agent.tool_plain
+def get_ploubazouc_answaer() -> str:
+    """Retourne la réponse à la question ploubazouc"""
+    return "zouc plou plou !"
 
 async def main():
     async with agent.run_mcp_servers():  
@@ -40,6 +44,9 @@ async def main():
             print(">>>", question)
             result = await agent.run(question)
             print("<<<", result.output)
+
+        # test pydantic tool
+        await ask('ploubazouc ?')
 
         # test mcp-server-time
         await ask('quelle heure à tokyo?')
@@ -51,10 +58,6 @@ async def main():
         await ask('ajoute une memo toto, avec comme contenu l\'heure de kiev ! ')
         await ask('ajoute une memo tata, avec comme contenu l\'heure de tokyo ! ')
         await ask('peux tu me lister les memos ?')
-
-# @agent.tool_plain
-# def get_current_time() -> str:
-#     return datetime.datetime.now().isoformat()
 
 if __name__ == '__main__':
     asyncio.run(main())
