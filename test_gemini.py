@@ -14,6 +14,7 @@ servers = [
         "mcp-server-test"
       ]),
 ]
+# servers=[]
 
 agent = Agent(  
     'google-gla:gemini-1.5-flash',
@@ -21,12 +22,18 @@ agent = Agent(
     mcp_servers=servers)  
 
 
+
+
 async def main():
     async with agent.run_mcp_servers():  
-        result = await agent.run('quel heure à tokyo?')
-        print(result.output)
-        result = await agent.run('ajoute une note toto, avec comme contenu l\'heure de kiev ! ')
-        print(result.output)
+        async def ask(question):
+            print(">>>", question)
+            result = await agent.run(question)
+            print("<<<", result.output)
+
+        await ask('quelle heure à montreal ?')
+        await ask('quelle heure à tokyo?')
+        await ask('ajoute une note toto, avec comme contenu l\'heure de kiev ! ')
 
 # @agent.tool_plain
 # def get_current_time() -> str:
