@@ -1,0 +1,17 @@
+[project]
+name = "mcp-server-test"
+version = "0.1.0"
+description = "test"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [ "mcp>=1.9.2",]
+[[project.authors]]
+name = "manatlan"
+email = "manatlan@gmail.com"
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+mcp-server-test = "mcp_server_test:main"

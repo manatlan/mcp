@@ -5,19 +5,28 @@ from pydantic_ai import Agent
 import datetime
 
 from pydantic_ai.mcp import MCPServerHTTP,MCPServerStdio
-server = MCPServerStdio("uvx",["mcp-server-time","--local-timezone=Europe/Paris"])
-
+servers = [
+    MCPServerStdio("uvx",["mcp-server-time","--local-timezone=Europe/Paris"]),
+    MCPServerStdio("uv",[
+        "--directory",
+        "./mcp-server-test",
+        "run",
+        "mcp-server-test"
+      ]),
+]
 
 agent = Agent(  
     'google-gla:gemini-1.5-flash',
     # system_prompt='get_heure_actuelle() renvoie l\'heure actuelle. Réponds en français.',
-    mcp_servers=[server])  
+    mcp_servers=servers)  
 
 
 async def main():
     async with agent.run_mcp_servers():  
         result = await agent.run('quel heure à tokyo?')
-    print(result.output)
+        print(result.output)
+        result = await agent.run('ajoute une note toto, en y mettant l\'heure de kiev ! ')
+        print(result.output)
 
 # @agent.tool_plain
 # def get_current_time() -> str:
