@@ -1,10 +1,10 @@
 # mcp
 
-qques test pydantic_ai & g4f, avec mcp
+qques test pydantic_ai & mcp.
 
 pour g4f:
 
-- j'ai du patcher le pydantic/main.py
+- j'ai du patcher le pydantic/main.py (cf fichier patch_pydantic_main_fix.py)
 - mais g4f semble ne pas fonctionner pas avec les mcp
 - ca fonctionne nickel avec un vrai gemini (certainement aussi avec un gpt/claude)
 
