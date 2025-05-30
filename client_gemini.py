@@ -41,10 +41,16 @@ async def main():
             result = await agent.run(question)
             print("<<<", result.output)
 
-        await ask('quelle heure à montreal ?')
+        # test mcp-server-time
         await ask('quelle heure à tokyo?')
-        await ask('ajoute une note toto, avec comme contenu l\'heure de kiev ! ')
-        await ask('peux tu addizy 42 et 3 ?')
+
+        # test mcp-server-test
+        await ask('ajoute une note titi, avec comme contenu l\'heure de montreal ! ')
+
+        # test mcp2-server-test
+        await ask('ajoute une memo toto, avec comme contenu l\'heure de kiev ! ')
+        await ask('ajoute une memo tata, avec comme contenu l\'heure de tokyo ! ')
+        await ask('peux tu me lister les memos ?')
 
 # @agent.tool_plain
 # def get_current_time() -> str:
