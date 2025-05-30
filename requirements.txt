@@ -1,2 +1,4 @@
-pydantic_ai
+python-dotenv
+pydantic-ai
+pydantic-ai-slim[mcp]
 g4f
