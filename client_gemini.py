@@ -34,7 +34,7 @@ agent = Agent(
     mcp_servers=servers)  
 
 @agent.tool_plain
-def get_ploubazouc_answaer() -> str:
+def get_ploubazouc_answer() -> str:
     """Retourne la réponse à la question ploubazouc"""
     return "zouc plou plou !"
 
