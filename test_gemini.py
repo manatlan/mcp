@@ -25,7 +25,7 @@ async def main():
     async with agent.run_mcp_servers():  
         result = await agent.run('quel heure à tokyo?')
         print(result.output)
-        result = await agent.run('ajoute une note toto, en y mettant l\'heure de kiev ! ')
+        result = await agent.run('ajoute une note toto, avec comme contenu l\'heure de kiev ! ')
         print(result.output)
 
 # @agent.tool_plain
