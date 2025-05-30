@@ -1,21 +1,21 @@
 # mcp
 
-qques test pydantic_ai & mcp.
+Some tests with pydantic_ai & mcp.
 
-pour g4f:
+For g4f (need to patch pydantic):
 
-- j'ai du patcher le pydantic/main.py (cf fichier patch_pydantic_main_fix.py)
-- mais g4f semble ne pas fonctionner pas avec les mcp
-- ca fonctionne nickel avec un vrai gemini (certainement aussi avec un gpt/claude)
+- I had to patch `pydantic/main.py` (see the file `patch_pydantic_main_fix.py`)
+- However, g4f does not seem to work with mcp
+- It works perfectly with a real Gemini (and probably also with GPT/Claude)
 
 
-## setup
+## Setup
 
     python3 -m venv venv
     . venv/bin/activate
     pip install -r requirements.txt
 
-Le répertoire "mcp-server-test" (créé avec https://github.com/modelcontextprotocol/create-python-server?tab=readme-ov-file) est géré via 'uv' (il possède sont propre .venv). Pour l'activer en console :
+The "mcp-server-test" directory (created with https://github.com/modelcontextprotocol/create-python-server?tab=readme-ov-file) is managed via 'uv' (it has its own .venv). To activate it in the console:
 
     $ cd mcp-server-test
     $ uv sync --dev --all-extras
