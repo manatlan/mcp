@@ -44,7 +44,7 @@ async def main():
         await ask('quelle heure à montreal ?')
         await ask('quelle heure à tokyo?')
         await ask('ajoute une note toto, avec comme contenu l\'heure de kiev ! ')
-        await ask('peux tu additionner 42 et 3 ?')
+        await ask('peux tu addizy 42 et 3 ?')
 
 # @agent.tool_plain
 # def get_current_time() -> str:
