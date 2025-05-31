@@ -41,7 +41,7 @@ It manages "memos", and it can:
 - add a memos : title & content
 - list all memos
 
-### mcp3-server-test (http)
+### mcp3-serverhttp-test (http)
 
 The "mcp3-server-test" is as mcp server using fastmcp/http (it is managed via 'uv' too (it has its own .venv))
 
