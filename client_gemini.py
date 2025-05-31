@@ -1,16 +1,16 @@
-import asyncio
+import asyncio,subprocess
 import datetime
 from pydantic_ai import Agent
-from pydantic_ai.mcp import MCPServerStdio
+from pydantic_ai.mcp import MCPServerStdio,MCPServerHTTP
 
 import dotenv
 dotenv.load_dotenv() # charge "GEMINI_API_KEY"
 
 servers = [
-    # https://pypi.org/project/mcp-server-time/
+    # https://pypi.org/project/mcp-server-time/ (stdio)
     MCPServerStdio("uvx",["mcp-server-time","--local-timezone=Europe/Paris"]),
 
-    # local server, cf "./mcp-server-test"
+    # local server, cf "./mcp-server-test" (stdio)
     MCPServerStdio("uv",[
         "--directory",
         "./mcp-server-test",
@@ -18,12 +18,16 @@ servers = [
         "mcp-server-test"
       ]),
 
+    # local server, cf "./mcp2-server-test" (stdio)
     MCPServerStdio("uv",[
         "--directory",
         "./mcp2-server-test",
         "run",
         "server.py"
       ]),
+
+    # local http server, cf "./mcp3-serverhttp-test" (http)
+    MCPServerHTTP("http://127.0.0.1:4200/mcp"),
 
 ]
 # servers=[]
@@ -48,18 +52,34 @@ async def main():
         # test pydantic tool
         await ask('ploubazouc ?')
 
-        # test mcp-server-time
+        # test mcp-server-time (stdio)
         await ask('quelle heure à tokyo?')
 
-        # test mcp-server-test
+        # test mcp-server-test (stdio)
         await ask('ajoute une note titi, avec comme contenu l\'heure de montreal ! ')
 
-        # test mcp2-server-test
+        # test mcp2-server-test (stdio)
         await ask('ajoute une memo toto, avec comme contenu l\'heure de kiev ! ')
         await ask('ajoute une memo tata, avec comme contenu l\'heure de tokyo ! ')
         await ask('peux tu me lister les memos ?')
 
+        # test mcp3-server-test (http)
+        await ask("ajoute une recette 'tarte citron', il faut des citrons et de la pâte")
+        await ask("ajoute une recette 'café sucré', il faut du café et du sucre ")
+        await ask("peux tu me lister les recettes ?")
+
+
 if __name__ == '__main__':
-    asyncio.run(main())
+    # Start the server process
+    server_proc = subprocess.Popen(
+        ["uv", "run", "server.py"],
+        cwd="mcp3-serverhttp-test"
+    )
+    try:
+        asyncio.run(main())
+    finally:
+        # Terminate the server process when done
+        server_proc.terminate()
+        server_proc.wait()
 
 

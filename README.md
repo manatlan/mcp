@@ -15,9 +15,9 @@ For g4f (need to patch pydantic):
     . venv/bin/activate
     pip install -r requirements.txt
 
-## 2 mcp server tests
+## 3 mcp server tests
 
-### mcp-server-test
+### mcp-server-test (stdio)
 
 The "mcp-server-test" directory (created with https://github.com/modelcontextprotocol/create-python-server?tab=readme-ov-file) is managed via 'uv' (it has its own .venv). To activate it in the console:
 
@@ -25,6 +25,12 @@ The "mcp-server-test" directory (created with https://github.com/modelcontextpro
     $ uv sync --dev --all-extras
     $ uv run mcp-server-test
 
-### mcp2-server-test
+it uses the low level "mcp" module
 
-The "mcp2-server-test" is as mcp server using fastmcp (it is managed via 'uv' too (it has its own .venv))
+### mcp2-server-test (stdio)
+
+The "mcp2-server-test" is as mcp server using fastmcp/stdio (it is managed via 'uv' too (it has its own .venv))
+
+### mcp3-server-test (http)
+
+The "mcp2-server-test" is as mcp server using fastmcp/http (it is managed via 'uv' too (it has its own .venv))
