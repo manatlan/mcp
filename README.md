@@ -8,7 +8,11 @@ Some tests with [pydantic_ai][1] & [fastmcp][2]/[mcp][4].
     . venv/bin/activate
     pip install -r requirements.txt
 
+    It needs a [GEMINI_API_KEY](https://aistudio.google.com/app/apikey) (in an `.env` file) !!!
+
 ## 4 mcp server tests
+
+It demonstrates how to use/setup some mcp servers
 
 ### mcp-server-time (package pypi)
 
