@@ -14,6 +14,9 @@ Some tests with pydantic_ai & mcp.
 
 An mcp server package, runned on the fly with uvx. see https://pypi.org/project/mcp-server-time/ (stdio)
 
+It manages timezones, and current local time
+
+
 ### mcp-server-test (stdio)
 
 The "mcp-server-test" directory (created with https://github.com/modelcontextprotocol/create-python-server?tab=readme-ov-file) is managed via 'uv' (it has its own .venv). To activate it in the console:
@@ -24,13 +27,23 @@ The "mcp-server-test" directory (created with https://github.com/modelcontextpro
 
 it uses the low level "mcp" module
 
+It manages "notes", and it can:
+
+- add a note : title & content
+
+
 ### mcp2-server-test (stdio)
 
 The "mcp2-server-test" is as mcp server using fastmcp/stdio (it is managed via 'uv' too (it has its own .venv))
 
+It manages "memos", and it can:
+
+- add a memos : title & content
+- list all memos
+
 ### mcp3-server-test (http)
 
-The "mcp2-server-test" is as mcp server using fastmcp/http (it is managed via 'uv' too (it has its own .venv))
+The "mcp3-server-test" is as mcp server using fastmcp/http (it is managed via 'uv' too (it has its own .venv))
 
 It manages "recettes" ("recipes" in english), and it can:
 

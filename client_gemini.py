@@ -72,7 +72,7 @@ async def main():
 
 
 if __name__ == '__main__':
-    # Start the server process
+    # Start the mcp3-serverhttp-test server (needed for HTTP transport)
     server_proc = subprocess.Popen(
         ["uv", "run", "server.py"],
         cwd="mcp3-serverhttp-test"
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     try:
         asyncio.run(main())
     finally:
-        # Terminate the server process when done
+        # Terminate the server process
         server_proc.terminate()
         server_proc.wait()
 
