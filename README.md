@@ -43,11 +43,17 @@ It manages "memos", and it can:
 
 ### mcp3-serverhttp-test (http)
 
-The "mcp3-server-test" is as mcp server using fastmcp/http (it is managed via 'uv' too (it has its own .venv))
+The "mcp3-serverhttp-test" is as mcp server using fastmcp/http (it is managed via 'uv' too (it has its own .venv))
 
 It manages "recettes" ("recipes" in english), and it can:
 
 - add a recipe : title & content
 - list all recipes
-- produces an image/url (with g4f/image generation) (async method)
-- give a recipe (it guess with g4f/text gpt-4o-mini generation) (async method)
+- produces an image/url (with [g4f][3]/image generation) (async method)
+- give a recipe (it guess with [g4f][3]/text gpt-4o-mini generation) (async method)
+
+
+
+ [1] : 
+ [2] : 
+ [3] : https://github.com/xtekky/gpt4free?tab=readme-ov-file
