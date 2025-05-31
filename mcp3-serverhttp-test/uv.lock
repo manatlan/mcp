@@ -467,7 +467,7 @@ wheels = [
 ]
 
 [[package]]
-name = "mcp2-server-test"
+name = "mcp3-server-test"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
