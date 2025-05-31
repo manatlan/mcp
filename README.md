@@ -2,20 +2,17 @@
 
 Some tests with pydantic_ai & mcp.
 
-For g4f (need to patch pydantic):
-
-- I had to patch `pydantic/main.py` (see the file `patch_pydantic_main_fix.py`)
-- However, g4f does not seem to work with mcp
-- It works perfectly with a real Gemini (and probably also with GPT/Claude)
-
-
 ## Setup
 
     python3 -m venv venv
     . venv/bin/activate
     pip install -r requirements.txt
 
-## 3 mcp server tests
+## 4 mcp server tests
+
+### mcp-server-time (package pypi)
+
+An mcp server package, runned on the fly with uvx. see https://pypi.org/project/mcp-server-time/ (stdio)
 
 ### mcp-server-test (stdio)
 
@@ -34,3 +31,10 @@ The "mcp2-server-test" is as mcp server using fastmcp/stdio (it is managed via '
 ### mcp3-server-test (http)
 
 The "mcp2-server-test" is as mcp server using fastmcp/http (it is managed via 'uv' too (it has its own .venv))
+
+It manages "recettes" ("recipes" in english), and it can:
+
+- add a recipe : title & content
+- list all recipes
+- produces an image/url (with g4f/image generation) (async method)
+- give a recipe (it guess with g4f/text gpt-4o-mini generation) (async method)

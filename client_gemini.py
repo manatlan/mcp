@@ -50,23 +50,25 @@ async def main():
             print("<<<", result.output)
 
         # test pydantic tool
-        await ask('ploubazouc ?')
+        await ask("ploubazouc ?")
 
         # test mcp-server-time (stdio)
-        await ask('quelle heure à tokyo?')
+        await ask("quelle heure à tokyo?")
 
         # test mcp-server-test (stdio)
-        await ask('ajoute une note titi, avec comme contenu l\'heure de montreal ! ')
+        await ask("ajoute une note titi, avec comme contenu l'heure de montreal ! ")
 
         # test mcp2-server-test (stdio)
-        await ask('ajoute une memo toto, avec comme contenu l\'heure de kiev ! ')
-        await ask('ajoute une memo tata, avec comme contenu l\'heure de tokyo ! ')
-        await ask('peux tu me lister les memos ?')
+        await ask("ajoute une memo toto, avec comme contenu l'heure de kiev ! ")
+        await ask("ajoute une memo tata, avec comme contenu l'heure de tokyo ! ")
+        await ask("peux tu me lister les memos ?")
 
-        # test mcp3-server-test (http)
+        # test mcp3-serverhttp-test (http)
         await ask("ajoute une recette 'tarte citron', il faut des citrons et de la pâte")
         await ask("ajoute une recette 'café sucré', il faut du café et du sucre ")
         await ask("peux tu me lister les recettes ?")
+        await ask("peux tu me générer une image pour la recette 'tarte citron' ?")
+        await ask("peux tu me donner la recette 'tarte citron' ?")
 
 
 if __name__ == '__main__':
