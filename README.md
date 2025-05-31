@@ -1,6 +1,6 @@
 # mcp
 
-Some tests with pydantic_ai & mcp.
+Some tests with [pydantic_ai][1] & [fastmcp][2]/[mcp][4].
 
 ## Setup
 
@@ -19,7 +19,7 @@ It manages timezones, and current local time
 
 ### mcp-server-test (stdio)
 
-The "mcp-server-test" directory (created with https://github.com/modelcontextprotocol/create-python-server?tab=readme-ov-file) is managed via 'uv' (it has its own .venv). To activate it in the console:
+The "mcp-server-test" directory (created with [mcp][4]) is managed via 'uv' (it has its own .venv). To activate it in the console:
 
     $ cd mcp-server-test
     $ uv sync --dev --all-extras
@@ -34,7 +34,7 @@ It manages "notes", and it can:
 
 ### mcp2-server-test (stdio)
 
-The "mcp2-server-test" is as mcp server using fastmcp/stdio (it is managed via 'uv' too (it has its own .venv))
+The "mcp2-server-test" is as mcp server using [fastmcp][2]/stdio (it is managed via 'uv' too (it has its own .venv))
 
 It manages "memos", and it can:
 
@@ -43,7 +43,7 @@ It manages "memos", and it can:
 
 ### mcp3-serverhttp-test (http)
 
-The "mcp3-serverhttp-test" is as mcp server using fastmcp/http (it is managed via 'uv' too (it has its own .venv))
+The "mcp3-serverhttp-test" is as mcp server using [fastmcp][2]/http (it is managed via 'uv' too (it has its own .venv))
 
 It manages "recettes" ("recipes" in english), and it can:
 
@@ -54,6 +54,7 @@ It manages "recettes" ("recipes" in english), and it can:
 
 
 
- [1] : 
- [2] : 
- [3] : https://github.com/xtekky/gpt4free?tab=readme-ov-file
+[1]: https://ai.pydantic.dev/mcp/
+[2]: https://gofastmcp.com/getting-started/welcome
+[3]: https://github.com/xtekky/gpt4free?tab=readme-ov-file
+[4]: https://github.com/modelcontextprotocol/create-python-server?tab=readme-ov-file
